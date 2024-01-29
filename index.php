@@ -1,5 +1,3 @@
-<?php
-  if (true) {
-    include("copyright/index.php");
-  }
-?>
+<script>
+  alert("test");
+</script>
