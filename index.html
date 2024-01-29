@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html id="page">
   <script>
-    // Função para fazer uma requisição AJAX e manipular a resposta
-    function carregarConteudo() {
-      fetch('./normal.html') // Substitua pelo caminho correto do seu arquivo
-        .then(response => response.text()) // Converte a resposta para texto
+    function loadPage(page) {
+      fetch(page)
+        .then(response => response.text())
         .then(data => {
-          // Manipula o conteúdo recebido, você pode inserir onde quiser na página
           document.getElementById("page").innerHTML = data;
         })
         .catch(error => {
           alert('Erro ao carregar conteúdo:', error);
         });
     }
-    // Chama a função para carregar o conteúdo ao carregar a página
-    window.onload = carregarConteudo;
+    window.onload = loadPage(prompt("escreva o link da página."));
   </script>
 </html>
