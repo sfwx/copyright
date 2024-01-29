@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html id="page"></html>
 <script>
   // Função para fazer uma requisição AJAX e manipular a resposta
   function carregarConteudo() {
@@ -6,10 +7,10 @@
       .then(response => response.text()) // Converte a resposta para texto
       .then(data => {
         // Manipula o conteúdo recebido, você pode inserir onde quiser na página
-        while(data);
+        document.getElementById("page").innerHTML = data;
       })
       .catch(error => {
-        while('Erro ao carregar conteúdo:', error);
+        alert('Erro ao carregar conteúdo:', error);
       });
   }
   // Chama a função para carregar o conteúdo ao carregar a página
