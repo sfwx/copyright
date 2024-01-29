@@ -1,21 +1,78 @@
 <!DOCTYPE html>
-<html id="page">
-  <script>
-    function loadPage(page) {
-      fetch(page)
-        .then(response => response.text())
-        .then(data => {
-          document.open();
-          document.write(data);
-          document.close();
-        })
-        .catch(error => {
-          alert('Erro ao carregar conteúdo:', error);
-        });
-    }
-    let page = "./normal.html";
-    document.addEventListener('DOMContentLoaded', function () {
-      loadPage(page);
-    });
-  </script>
+<html lang="pt_BR">
+  <head>
+    <script>
+      function loadPage(page) {
+        fetch(page)
+          .then(response => response.text())
+          .then(data => {
+            document.open();
+            document.write(data);
+            document.close();
+          })
+          .catch(error => {
+            alert('Erro ao carregar conteúdo:', error);
+          });
+      }
+      let url = new URLSearchParams(window.location.href.search);
+      let lang = url.get('lang');
+      let header = url.get('header');
+      if (!header) {
+        if (lang && lang == "") {
+          let page = "./normal.html");
+        }
+        else if (lang && lang != "") {
+          if (lang == "pt" || lang == "br" || lang == "pt_br" || lang == "pt_BR" || lang == "PT_BR") {
+            let page = "./pt_BR/normal.html");
+          }
+          else {
+            lang = "en";
+            let page = "./en_US/normal.html");
+          }
+        }
+        else {
+          lang = "en";
+          let page = "./en_US/normal.html");;
+        }
+      }
+      else if (header && header == "minecraft" || header && header == "Minecraft" || header && header == "mine" || header && header == "Mine") {
+        if (lang && lang == "") {
+          let page = "./minecraft.html");
+        }
+        else if (lang && lang != "") {
+          if (lang == "pt" || lang == "br" || lang == "pt_br" || lang == "pt_BR" || lang == "PT_BR") {
+            let page = "./pt_BR/minecraft.html");
+          }
+          else {
+            let page = "./en_US/minecraft.html");
+          }
+        }
+        else {
+          let page = "./en_US/minecraft.html");
+        }
+      }
+      else if (header && header == "mht" || header && header == "MHT") {
+        header("content-type: text/plain");
+        let page = "./index.mht");
+      }
+      else {
+        header("content-type: text/plain");
+        if (lang && lang == "") {
+          let page = "./text-plain.html");
+        }
+        else if (lang && lang != "") {
+          if (lang == "pt" || lang == "br" || lang == "pt_br" || lang == "pt_BR" || lang == "PT_BR") {
+            let page = "./pt_BR/text-plain.html");
+          }
+          else {
+            let page = "./en_US/text-plain.html");
+          }
+        }
+        else {
+          let page = "./en_US/text-plain.html");
+        }
+      }
+      window.load = loadPage(page);
+    </script>
+  </html>
 </html>
