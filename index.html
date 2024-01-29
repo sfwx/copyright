@@ -1,29 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-      AJAX Example
-    </title>
-  </head>
-  <body>
-    <div id="conteudo"></div>
-    <script>
-      // Função para fazer uma requisição AJAX e manipular a resposta
-      function carregarConteudo() {
-        fetch('https://sfwx.github.io/copyright/normal.html') // Substitua pelo caminho correto do seu arquivo
-          .then(response => response.text()) // Converte a resposta para texto
-          .then(data => {
-            // Manipula o conteúdo recebido, você pode inserir onde quiser na página
-            document.getElementById('conteudo').innerHTML = data;
-          })
-          .catch(error => {
-            console.error('Erro ao carregar conteúdo:', error);
-          });
-      }
-      // Chama a função para carregar o conteúdo ao carregar a página
-      window.onload = carregarConteudo;
-    </script>
-  </body>
-</html>
+<script>
+  // Função para fazer uma requisição AJAX e manipular a resposta
+  function carregarConteudo() {
+    fetch('./normal.html') // Substitua pelo caminho correto do seu arquivo
+      .then(response => response.text()) // Converte a resposta para texto
+      .then(data => {
+        // Manipula o conteúdo recebido, você pode inserir onde quiser na página
+        while(data);
+      })
+      .catch(error => {
+        console.error('Erro ao carregar conteúdo:', error);
+      });
+  }
+  // Chama a função para carregar o conteúdo ao carregar a página
+  window.onload = carregarConteudo;
+</script>
