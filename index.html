@@ -5,12 +5,17 @@
       fetch(page)
         .then(response => response.text())
         .then(data => {
-          document.getElementById("page").innerHTML = data;
+          document.open();
+          document.write(data);
+          document.close();
         })
         .catch(error => {
           alert('Erro ao carregar conteúdo:', error);
         });
     }
-    window.onload = loadPage(prompt("escreva o link da página."));
+    let page = "./normal.html";
+    document.addEventListener('DOMContentLoaded', function () {
+      loadPage(page);
+    });
   </script>
 </html>
