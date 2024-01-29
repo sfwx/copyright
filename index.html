@@ -17,59 +17,60 @@
       let url = new URLSearchParams(window.location.href.search);
       let lang = url.get('lang');
       let header = url.get('header');
+      let page;
       if (!header) {
         if (lang && lang == "") {
-          let page = "./normal.html");
+          page = "./normal.html");
         }
         else if (lang && lang != "") {
           if (lang == "pt" || lang == "br" || lang == "pt_br" || lang == "pt_BR" || lang == "PT_BR") {
-            let page = "./pt_BR/normal.html");
+            page = "./pt_BR/normal.html");
           }
           else {
             lang = "en";
-            let page = "./en_US/normal.html");
+            page = "./en_US/normal.html");
           }
         }
         else {
           lang = "en";
-          let page = "./en_US/normal.html");;
+          page = "./en_US/normal.html");;
         }
       }
       else if (header && header == "minecraft" || header && header == "Minecraft" || header && header == "mine" || header && header == "Mine") {
         if (lang && lang == "") {
-          let page = "./minecraft.html");
+          page = "./minecraft.html");
         }
         else if (lang && lang != "") {
           if (lang == "pt" || lang == "br" || lang == "pt_br" || lang == "pt_BR" || lang == "PT_BR") {
-            let page = "./pt_BR/minecraft.html");
+            page = "./pt_BR/minecraft.html");
           }
           else {
-            let page = "./en_US/minecraft.html");
+            page = "./en_US/minecraft.html");
           }
         }
         else {
-          let page = "./en_US/minecraft.html");
+          page = "./en_US/minecraft.html");
         }
       }
       else if (header && header == "mht" || header && header == "MHT") {
         header("content-type: text/plain");
-        let page = "./index.mht");
+        page = "./index.mht");
       }
       else {
         header("content-type: text/plain");
         if (lang && lang == "") {
-          let page = "./text-plain.html");
+          page = "./text-plain.html");
         }
         else if (lang && lang != "") {
           if (lang == "pt" || lang == "br" || lang == "pt_br" || lang == "pt_BR" || lang == "PT_BR") {
-            let page = "./pt_BR/text-plain.html");
+            page = "./pt_BR/text-plain.html");
           }
           else {
-            let page = "./en_US/text-plain.html");
+            page = "./en_US/text-plain.html");
           }
         }
         else {
-          let page = "./en_US/text-plain.html");
+          page = "./en_US/text-plain.html");
         }
       }
       window.load = loadPage(page);
